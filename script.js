@@ -36,14 +36,15 @@ function applyPref() {
     }
 }
 
-form.addEventListener("submit", event=> {
+buttonSubmit.addEventListener("submit", event=> {
     event.preventDefault()
     localStorage.setItem("background-color", bgColor.value);
     localStorage.setItem("foreground-color", textColor.value);
-    
+    document.body.style.backgroundColor = savedBgColor;
+    document.body.style.color = savedTextColor;
     console.log("background color", bgColor.value);
     console.log("Text color", textColor.value);
     
 });
 
-console.log(applyPref)
+applyPref();
