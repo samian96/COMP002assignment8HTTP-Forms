@@ -16,6 +16,7 @@ let bgColor = document.getElementById("background-color");
 let textColor = document.getElementById("foreground-color");
 let savedBgColor = localStorage.getItem("background-color");
 let savedTextColor = localStorage.getItem("foreground-color");
+let buttonSubmit = document.getElementById("submit")
 
 if (savedBgColor !== null) bgColor.value = savedBgColor;
 if (savedTextColor !== null) textColor.value = savedTextColor;
@@ -23,12 +24,26 @@ if (savedTextColor !== null) textColor.value = savedTextColor;
 bgColor.innerText += localStorage.getItem("background-color");
 textColor.innerText += localStorage.getItem("foreground-color");
 
+function applyPref() {
+    let bgColor = document.getElementById("background-color");
+    let textColor = document.getElementById("foreground-color");
+
+    if (savedBgColor) {
+        document.body.style.backgroundColor = savedBgColor;
+    }
+    if (savedTextColor) {
+        document.body.style.color = savedTextColor;
+    }
+}
+
 form.addEventListener("submit", event=> {
     event.preventDefault()
+    localStorage.setItem("background-color", bgColor.value);
+    localStorage.setItem("foreground-color", textColor.value);
+    
+    console.log("background color", bgColor.value);
+    console.log("Text color", textColor.value);
+    
 });
 
-localStorage.setItem("background-color", bgColor.value);
-localStorage.setItem("foreground-color", textColor.value);
-
-console.log("background color", bgColor.value);
-console.log("Text color", textColor.value);
+console.log(applyPref)
