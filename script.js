@@ -11,7 +11,16 @@
 // were saved.
 
 // function to save to the local storage
-function colorSave (bgColor, textColor) {
-    localStorage.setItem("backgroundColor", bgColor);
-    localStorage.setItem("textColor", textColor);
-}
+let form = document.querySelector("preferences-form")
+let bgColor = document.getElementById("background-color");
+let textColor = document.getElementById("foreground-color");
+let savedBgColor = localStorage.getItem("background-color");
+let savedTextColor = localStorage.getItem("foreground-color");
+
+bgColor.innerText += localStorage.getItem("background-color");
+textColor.innerText += localStorage.getItem("foreground-color");
+
+form.addEventListener("submit", event=> {
+    event.preventDefault();
+    console.log(bgColor.value)
+});
