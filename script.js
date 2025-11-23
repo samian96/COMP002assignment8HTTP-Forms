@@ -17,6 +17,9 @@ let textColor = document.getElementById("foreground-color");
 let savedBgColor = localStorage.getItem("background-color");
 let savedTextColor = localStorage.getItem("foreground-color");
 
+if (savedBgColor !== null) bgColor.value = savedBgColor;
+if (savedTextColor !== null) textColor.value = savedTextColor;
+
 bgColor.innerText += localStorage.getItem("background-color");
 textColor.innerText += localStorage.getItem("foreground-color");
 
