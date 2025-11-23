@@ -24,6 +24,11 @@ bgColor.innerText += localStorage.getItem("background-color");
 textColor.innerText += localStorage.getItem("foreground-color");
 
 form.addEventListener("submit", event=> {
-    event.preventDefault();
-    console.log(bgColor.value)
+    event.preventDefault()
 });
+
+localStorage.setItem("background-color", bgColor.value);
+localStorage.setItem("foreground-color", textColor.value);
+
+console.log("background color", bgColor.value);
+console.log("Text color", textColor.value);
